@@ -1,10 +1,11 @@
 require 'sinatra'
-require './lib/bookmark'
+require_relative './lib/bookmark'
 
 class BookmarkManager < Sinatra::Base
   enable :sessions
 
   get '/bookmarks' do
+    p ENV 
     @bookmarks = Bookmark.all
     erb :index
   end

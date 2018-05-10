@@ -4,8 +4,17 @@ require_relative './lib/bookmark'
 class BookmarkManager < Sinatra::Base
   enable :sessions
 
+  get '/' do
+    erb :add_bookmarks
+  end
+
+  post '/add_bookmarks' do
+    @bookmark = Bookmark.create(params[:url_address])
+    redirect '/bookmarks'
+  end
+
   get '/bookmarks' do
-    p ENV 
+    ENV
     @bookmarks = Bookmark.all
     erb :index
   end

@@ -21,7 +21,11 @@ describe Bookmark do
 
     describe '#url_checker' do
       it 'should return true if a valid url is entered' do
+        expect(Bookmark.url_checker('http://youtube.com')).to eq 0
+      end
 
+      it 'should return false if an invalid url address is entered' do
+        expect(Bookmark.url_checker('ht??:youtube.com')).to eq nil
       end
   end
 end

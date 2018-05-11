@@ -29,7 +29,6 @@ feature 'validating bookmarks' do
     visit('/')
     fill_in :url_address, with: ('htop:/?youtube.com')
     click_button 'Submit'
-    save_and_open_page
     expect(page).to have_content ('invalid url address')
   end
 end

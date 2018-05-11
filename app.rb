@@ -12,7 +12,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/add_bookmarks' do
-    if params[:url_address] =~ /\A#{URI::regexp(['http', 'https'])}\z/
+    if Bookmark.url_checker(params[:url_address])
       @bookmark = Bookmark.create(params[:url_address])
       redirect '/bookmarks'
     else

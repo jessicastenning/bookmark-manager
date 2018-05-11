@@ -29,7 +29,8 @@ class Bookmark
     result.map { |bookmark| bookmark['url'] }
   end
 
-  def url_checker
+  def self.url_checker(url)
+    url =~ /\A#{URI::regexp(['http', 'https'])}\z/
   end
 
 

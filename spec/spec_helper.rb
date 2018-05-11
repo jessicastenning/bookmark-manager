@@ -7,7 +7,8 @@ ENV['ENVIRONMENT'] = 'test'
 
 RSpec.configure do |config|
   config.before(:each) do
-    load 'setup_test_database.rb'
+    require 'setup_test_database'
+    connect
   end
 end
 

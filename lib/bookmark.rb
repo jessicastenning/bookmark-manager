@@ -29,5 +29,8 @@ class Bookmark
     result.map { |bookmark| bookmark['url'] }
   end
 
+  def url_checker
+  end
+
 
 end

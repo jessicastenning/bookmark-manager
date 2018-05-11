@@ -4,11 +4,10 @@ describe Bookmark do
 
   describe '#all' do
     it 'should return the list of bookmarks in an array' do
-      connection = PG.connect(dbname: 'bookmark_manager_test')
 
-      connection.exec("INSERT INTO bookmarks VALUES(1, 'http://makersacademy.com');")
-      connection.exec("INSERT INTO bookmarks VALUES(2, 'http://destroyallsoftware.com');")
-      connection.exec("INSERT INTO bookmarks VALUES(3, 'http://google.com');")
+      Bookmark.create('http://makersacademy.com')
+      Bookmark.create('http://destroyallsoftware.com')
+      Bookmark.create('http://google.com')
 
       expected_bookmarks = [
         'http://makersacademy.com',
@@ -18,5 +17,11 @@ describe Bookmark do
 
       expect(Bookmark.all).to eq expected_bookmarks
     end
+  end
+
+    describe '#url_checker' do
+      it 'should return true if a valid url is entered' do
+
+      end
   end
 end

@@ -13,9 +13,9 @@ end
 feature 'viewing bookmarks' do
   scenario 'displaying bookmarks' do
 
-    Bookmark.create('http://makersacademy.com')
-    Bookmark.create('http://destroyallsoftware.com')
-    Bookmark.create('http://google.com')
+    Bookmark.create(url: 'http://makersacademy.com')
+    Bookmark.create(url: 'http://destroyallsoftware.com')
+    Bookmark.create(url: 'http://google.com')
 
     visit('/bookmarks')
     expect(page).to have_content "http://makersacademy.com"
